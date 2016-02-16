@@ -65,7 +65,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="images\backgroundimage.jpg" />
     <Content Include="images\close.png" />
-    <Content Include="images\FCSAmerica-logo.png" />
+    <Content Include="images\logo.png" />
     <Content Include="images\lastnamef.png" />
     <Content Include="images\overlay-background.png" />
     <Content Include="images\spinner_192.gif" />
