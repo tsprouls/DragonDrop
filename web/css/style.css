@@ -1,0 +1,125 @@
+
+
+.my-drop-zone { border: dotted 3px lightgray; }
+.nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+.another-file-over-class { border: dotted 3px green; }
+
+html, body { height: 100%; }
+
+canvas {
+    background-color: #f3f3f3;
+    -webkit-box-shadow: 3px 3px 3px 0 #e3e3e3;
+    -moz-box-shadow: 3px 3px 3px 0 #e3e3e3;
+    box-shadow: 3px 3px 3px 0 #e3e3e3;
+    border: 1px solid #c3c3c3;
+    margin: 6px 0 0 6px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+.img-thumbnail {
+    max-width: none;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.top-buffer { margin-top:20px; }
+
+.bottom-buffer { margin-bottom:10px; }
+
+.control-label {
+    text-align: left;
+}
+
+
+.form-horizontal .control-label {
+    padding-left: 15px;
+    padding-right:5px;
+    padding-top:3px;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.top-bar {
+    width: 100%;
+    z-index: 10000;
+}
+
+.bottom-bar {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    border-top: 1px solid #aaa;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+.datepicker {
+    vertical-align: middle;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+}
+
+#close {
+    display: block;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 15px;
+    height: 15px;
+    background: url('../images/close.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+
+#sortable { list-style-type: none; margin: 0; padding: 0; clear: both; }
+#sortable li { margin: 15px; padding: 3px; float: left; width: 140px; height: 120px; font-size: 4em; text-align: center; }
+
+p.image-number {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    color: rgba(255,255,255,0.5);
+}
+
