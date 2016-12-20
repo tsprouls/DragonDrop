@@ -65,6 +65,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="images\backgroundimage.jpg" />
     <Content Include="images\close.png" />
+    <Content Include="images\IMG_1627.JPG" />
     <Content Include="images\logo.png" />
     <Content Include="images\lastnamef.png" />
     <Content Include="images\overlay-background.png" />
@@ -85,8 +86,7 @@
     <Content Include="js\jsPDF\jspdf.plugin.split_text_to_size.js" />
     <Content Include="js\jsPDF\jspdf.plugin.standard_fonts_plugin.js" />
     <Content Include="js\jsPDF\PDFModule.js" />
-    <Content Include="js\load-image.js" />
-    <Content Include="js\moxie.min.js" />
+    <Content Include="js\load-image.all.min.js" />
     <Content Include="js\plupload.full.min.js" />
     <Content Include="js\shepherd.min.js" />
     <Content Include="js\sortable.js" />

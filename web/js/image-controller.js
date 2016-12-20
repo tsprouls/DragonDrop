@@ -178,6 +178,7 @@ var ImageController = function ($scope) {
 
         var countFinished = 0;
         var newImages = [];
+        var totalNumberOfFiles = 0;
 
         function handlePluploadFilesAdded(uploader, files) {
             //Reset countFinished
@@ -190,7 +191,7 @@ var ImageController = function ($scope) {
             });
             console.log("Files selected.");
 
-            $('#myModal').on('show.bs.modal', function() {
+            $('#myModal').on('show.bs.modal', function () {
 
                 files = [].slice.call(files);
 
@@ -206,53 +207,48 @@ var ImageController = function ($scope) {
             $('#myModal').modal('show');
         }
 
-        function showImagePreview(file, totalNumberOfFiles) {
-
-            var preloader = new mOxie.Image();
-            preloader.onload = function () {
-                console.log("Resize");
-                preloader.downsize(imageSize, imageSize);
-                console.log("Resize done");
-                var model = {
-                    imageSource: preloader.getAsDataURL(),
-                    description: '',
-                    name: file.name,
-                    lastModifiedDate: file.lastModifiedDate
-                };
-                newImages.push(model);
-
-
-                $scope.$apply(function () {
-                    $scope.numberFinished++;
-                });
-
-                countFinished++;
-                if (countFinished == totalNumberOfFiles) {
-                    $('#myModal').modal('hide');
-
-                    console.log("Pushing");
-                    newImages.sort(function (a, b) {
-                        if (a.name.toUpperCase() > b.name.toUpperCase()) {
-                            return 1;
-                        }
-                        if (a.name.toUpperCase() < b.name.toUpperCase()) {
-                            return -1;
-                        }
-                        // a must be equal to b
-                        return 0;
-                    });
-                    for (var i = 0, image; image = newImages[i]; i++) {
-                        $scope.$apply(function () {
-                            $scope.images.push(image);
-                        });
-                    }
-                    console.log("Done loading files");
-                }
-            };
-            preloader.load(file.getSource());
+        function showImagePreview(file, totalFiles) {
+            totalNumberOfFiles = totalFiles;
+            var options = { meta: true, orientation: true, maxHeight: imageSize, maxWidth: imageSize };
+            loadImage(file.getNative(), finishLoadingImages, options);
 
         }
+        function finishLoadingImages(img, data) {
+            var model = {
+                imageSource: img.toDataURL(),
+                description: '',
+                name: Math.random().toString(36).substr(2, 9),
+            };
+            newImages.push(model);
 
+
+            $scope.$apply(function () {
+                $scope.numberFinished++;
+            });
+
+            countFinished++;
+            if (countFinished == totalNumberOfFiles) {
+                $('#myModal').modal('hide');
+
+                console.log("Pushing");
+                newImages.sort(function (a, b) {
+                    if (a.name.toUpperCase() > b.name.toUpperCase()) {
+                        return 1;
+                    }
+                    if (a.name.toUpperCase() < b.name.toUpperCase()) {
+                        return -1;
+                    }
+                    // a must be equal to b
+                    return 0;
+                });
+                for (var i = 0, image; image = newImages[i]; i++) {
+                    $scope.$apply(function () {
+                        $scope.images.push(image);
+                    });
+                }
+                console.log("Done loading files");
+            }
+        }
 
     })(jQuery, plupload);
 
